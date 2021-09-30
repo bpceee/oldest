@@ -9,4 +9,4 @@
       let url = `https://github.com/${repo}/commits/${branch}?after=${commitId}+${commitCount-10}`;
       window.location = url;
   })
-})(window.location.pathname.match(/\/([^\/]+\/[^\/]+)(?:\/(?:tree|commits)\/(.+))?/));
+})(window.location.pathname.match(/\/([^\/]+\/[^\/]+)(?:\/(?:tree|commits|blob)\/([^\/]+))?/));
