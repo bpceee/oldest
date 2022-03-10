@@ -4,7 +4,7 @@
     .then(res => {
       let mainDocument = new DOMParser().parseFromString(res, 'text/html');
       let commitCount = mainDocument.evaluate('//span[@class="d-none d-sm-inline"]//strong', mainDocument.body).iterateNext().innerText;
-      commitCount = Number(commitCount.trim().replace(',', ''));
+      commitCount = Number(commitCount.trim().replaceAll(',', ''));
       let commitId = mainDocument.evaluate('//*[@class="f6 Link--secondary text-mono ml-2 d-none d-lg-inline"]', mainDocument.body).iterateNext().getAttribute("href").split('/').pop();
       let url = `https://github.com/${repo}/commits/${branch}?after=${commitId}+${commitCount-10}`;
       window.location = url;
